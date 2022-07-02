@@ -68,8 +68,8 @@ wget -P $HOME/.aptos wget https://raw.githubusercontent.com/aptos-labs/aptos-cor
 wget -P $HOME/.aptos wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml &> /dev/null
 wget -P $HOME/.aptos wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml &> /dev/null
 wget -P $HOME https://github.com/aptos-labs/aptos-core/releases/download/aptos-cli-0.2.0/aptos-cli-0.2.0-Ubuntu-x86_64.zip &> /dev/null
-unzip $HOME/aptos-cli-0.1.1-Ubuntu-x86_64.zip -d /usr/bin
-rm $HOME/aptos-cli-0.1.1-Ubuntu-x86_64.zip
+unzip $HOME/aptos-cli-0.2.0-Ubuntu-x86_64.zip -d /usr/bin
+rm $HOME/aptos-cli-0.2.0-Ubuntu-x86_64.zip
 
 echo "=================================================="
 
