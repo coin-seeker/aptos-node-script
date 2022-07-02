@@ -129,14 +129,14 @@ echo -e "\e[1m\e[32mAptos Validator/Full Node Started \e[0m"
 echo "==============VALIDATOR/FULL NODE DETAILS=========="
 
 echo -e "\n\e[1m\e[32mVALIDATOR CONSENSUS KEY: \e[0m" 
-echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="consensus_key: "{print $2}' $APTOS_NODE_NAME.yaml)" \n \e[0m"
+echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="consensus_public_key: "{print $2}' $APTOS_NODE_NAME.yaml)" \n \e[0m"
 echo -e "\e[1m\e[32mVALIDATOR ACCOUNT KEY: \e[0m" 
-echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="account_key: "{print $2}' $APTOS_NODE_NAME.yaml)" \n \e[0m"
+echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="account_public_key: "{print $2}' $APTOS_NODE_NAME.yaml)" \n \e[0m"
 echo -e "\e[1m\e[32mVALIDATOR NETWORK KEY: \e[0m" 
-echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="validator_network_key: "{print $2}' $APTOS_NODE_NAME.yaml)" \n \e[0m"
+echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="validator_network_public_key: "{print $2}' $APTOS_NODE_NAME.yaml)" \n \e[0m"
 
 echo -e "\e[1m\e[32mFULLNODE NETWORK KEY: \e[0m" 
-echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="full_node_network_key: "{print $2}' $APTOS_NODE_NAME.yaml)" \n \e[0m"
+echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="full_node_network_public_key: "{print $2}' $APTOS_NODE_NAME.yaml)" \n \e[0m"
 
 echo "=================================================="
 
