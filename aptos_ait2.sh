@@ -94,7 +94,15 @@ echo "---
 root_key: \"$KEY\"
 users:
   - $APTOS_NODE_NAME
-chain_id: 40" > layout.yaml
+chain_id: 40
+min_stake: 0
+max_stake: 100000
+min_lockup_duration_secs: 0
+max_lockup_duration_secs: 2592000
+epoch_duration_secs: 86400
+initial_lockup_timestamp: 1656615600
+min_price_per_gas_unit: 1
+allow_new_validators: true" > layout.yaml
 
 echo "=================================================="
 
