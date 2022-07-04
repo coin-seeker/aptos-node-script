@@ -89,11 +89,11 @@ echo -e "\e[1m\e[32m8. Create layout YAML file ... \e[0m" && sleep 1
 
 aptos key generate --output-file root_key
 KEY_PUB=$(cat ~/.aptos/root_key.pub) 
-KEY="0x"$KEY_PUB 
+KEY=$KEY_PUB
 echo "---
 root_key: \"$KEY\"
 users:
-  - $APTOS_NODE_NAME
+  - \"$APTOS_NODE_NAME\"
 chain_id: 40
 min_stake: 0
 max_stake: 100000
