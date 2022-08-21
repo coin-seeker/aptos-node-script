@@ -126,6 +126,8 @@ echo "==============VALIDATOR/FULL NODE DETAILS=========="
 
 echo -e "\n\e[1m\e[32mVALIDATOR CONSENSUS KEY: \e[0m" 
 echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="consensus_public_key: "{print $2}' $HOME/.aptos/keys/public-keys.yaml)" \n \e[0m"
+echo -e "\n\e[1m\e[32mVALIDATOR CONSENSUS POP KEY: \e[0m" 
+echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="consensus_proof_of_possession: "{print $2}' $HOME/.aptos/keys/public-keys.yaml)" \n \e[0m"
 echo -e "\e[1m\e[32mVALIDATOR ACCOUNT KEY: \e[0m" 
 echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="account_public_key: "{print $2}' $HOME/.aptos/keys/public-keys.yaml)" \n \e[0m"
 echo -e "\e[1m\e[32mVALIDATOR NETWORK KEY: \e[0m" 
