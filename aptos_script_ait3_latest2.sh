@@ -66,6 +66,7 @@ echo -e "\e[1m\e[32m5. Downloading Aptos Validator/Full node config files ... \e
 
 wget -P $HOME/.aptos wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/docker-compose.yaml &> /dev/null
 wget -P $HOME/.aptos wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/validator.yaml &> /dev/null
+wget -P $HOME/.aptos wget https://raw.githubusercontent.com/aptos-labs/aptos-core/main/docker/compose/aptos-node/fullnode.yaml &> /dev/null
 wget -P $HOME https://github.com/aptos-labs/aptos-core/releases/download/aptos-cli-v0.3.1/aptos-cli-0.3.1-Ubuntu-x86_64.zip &> /dev/null
 unzip $HOME/aptos-cli-0.3.1-Ubuntu-x86_64.zip -d /usr/bin
 rm $HOME/aptos-cli-0.3.1-Ubuntu-x86_64.zip
@@ -80,7 +81,7 @@ echo "=================================================="
 
 echo -e "\e[1m\e[32m7. Configure validator information ... \e[0m" && sleep 1
 
-aptos genesis set-validator-configuration  --owner-public-identity-file $HOME/.aptos/keys/public-keys.yaml --local-repository-dir $HOME/.aptos  --username $APTOS_NODE_NAME  --validator-host $IP:6180  --stake-amount 100000000000000
+aptos genesis set-validator-configuration  --owner-public-identity-file $HOME/.aptos/keys/public-keys.yaml --local-repository-dir $HOME/.aptos  --username $APTOS_NODE_NAME  --validator-host $IP:6180    --full-node-host  $IP:6182  --stake-amount 100000000000000
 
 echo "=================================================="
 
@@ -124,11 +125,13 @@ echo -e "\e[1m\e[32mAptos Validator Started \e[0m"
 
 echo "==============VALIDATOR/FULL NODE DETAILS=========="
 
-echo -e "\n\e[1m\e[32mVALIDATOR CONSENSUS KEY: \e[0m" 
+echo -e "\n\e[1m\e[32mOWNER KEY: \e[0m" 
+echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="owner_account_public_key: "{print $2}' $HOME/.aptos/$APTOS_NODE_NAME/owner.yaml)" \n \e[0m"
+echo -e "\n\e[1m\e[32mCONSENSUS KEY: \e[0m" 
 echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="consensus_public_key: "{print $2}' $HOME/.aptos/keys/public-keys.yaml)" \n \e[0m"
-echo -e "\n\e[1m\e[32mVALIDATOR CONSENSUS POP KEY: \e[0m" 
+echo -e "\n\e[1m\e[32mCONSENSUS POP KEY: \e[0m" 
 echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="consensus_proof_of_possession: "{print $2}' $HOME/.aptos/keys/public-keys.yaml)" \n \e[0m"
-echo -e "\e[1m\e[32mVALIDATOR ACCOUNT KEY: \e[0m" 
+echo -e "\e[1m\e[32mACCOUNT KEY: \e[0m" 
 echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="account_public_key: "{print $2}' $HOME/.aptos/keys/public-keys.yaml)" \n \e[0m"
 echo -e "\e[1m\e[32mVALIDATOR NETWORK KEY: \e[0m" 
 echo -e "\e[1m\e[39m"    $(awk -F'"' '$1=="validator_network_public_key: "{print $2}' $HOME/.aptos/keys/public-keys.yaml)" \n \e[0m"
